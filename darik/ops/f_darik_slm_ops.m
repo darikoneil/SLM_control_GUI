@@ -126,7 +126,8 @@ region_params(idx).beam_dump_xy = [-350, 0];
 
 
 %% default directories
-ops.GUI_dir = 'C:\Users\rylab_901c_slm\PycharmProjects\split_slm\slm_legacy\SLM_GUI\SLM_GUI';
+%ops.GUI_dir = 'C:\Users\rylab_901c_slm\PycharmProjects\split_slm\slm_legacy\SLM_GUI\SLM_GUI';
+ops.GUI_dir = 'C:\Users\rylab_901c_slm\PycharmProjects\SLM_control_GUI';
 darik_dir = '\darik\';
 if exist('is_final', 'var')
     ops.calibration_dir = [ops.GUI_dir darik_dir 'calibrations\final'];
