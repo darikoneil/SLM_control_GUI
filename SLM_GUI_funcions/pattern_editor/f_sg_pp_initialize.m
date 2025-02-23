@@ -64,6 +64,7 @@ if ~isempty(app.app_main.UIImagePhaseTable.Data)
     end
 end
 %%
+f_sg_pp_init_z_depth_spinner(app);
 f_sg_pp_update_pat_plot(app);
 f_sg_pp_update_bkg_im(app);
 f_sg_pp_update_group_text(app);
