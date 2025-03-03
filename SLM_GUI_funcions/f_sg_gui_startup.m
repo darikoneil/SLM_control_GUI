@@ -13,7 +13,8 @@ function f_sg_gui_startup(app, GUI_dir)
 % end
 
 %%
-app.SLM_ops = f_SLM_default_ops(GUI_dir);
+app.SLM_ops = f_SLM_default_ops(app, GUI_dir);
+
 
 %% create calibration dirs
 ops = app.SLM_ops;
@@ -27,8 +28,19 @@ end
 
 %% load lut lists
 f_sg_load_default_ops(app);
+
 f_sg_load_calibration(app);
 f_sg_reg_update(app);
+
+
+%dummy
+app.SLM_ops.sdkObj = sdk0000(app.SLM_ops);
+
+
+if isfile('SLM_GUI_local_ops.mat')
+    f_sg_ops_load(app, strcat([GUI_dir, '\SLM_GUI_local_ops.mat']));
+end
+
 
 app.SLM_ops = f_SLM_initialize(app.SLM_ops);
 if app.SLM_ops.sdkObj.SDK_created
@@ -36,7 +48,5 @@ if app.SLM_ops.sdkObj.SDK_created
     app.ActivateSLMLamp.Color = [0.00,1.00,0.00];
 end
 f_sg_initialize_GUI_params(app);
-
-%f_sg_ops_load(app);
 
 end

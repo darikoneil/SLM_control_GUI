@@ -10,10 +10,11 @@ if strcmpi(ops.SLM_params_use.SDK_ver, '4851')
     ops.sdkObj = sdk4851(ops.SLM_params_use);
 elseif strcmpi(ops.SLM_params_use.SDK_ver, '4857')
     ops.sdkObj = sdk4857(ops.SLM_params_use);
+elseif strcmpi(ops.SLM_params_use.SDK_ver, '0000')
+    ops.sdkObj = sdk0000(ops.SLM_params_use);
 else
     error("SLM object for sdk_ver '%s' doesn't exist", ops.SDK_ver);
 end
-
 ops.sdkObj.init();
 
 %% set default SLM if not specified

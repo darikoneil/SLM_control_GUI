@@ -1,4 +1,4 @@
-function ops = f_SLM_default_ops(GUI_dir)
+function ops = f_SLM_default_ops(app, GUI_dir)
 
 ops = struct;
 
@@ -25,7 +25,7 @@ ops.GS_num_iterations = 100; % number of iterations for meadowlark GS optimizati
 idx = 1;
 SLM_params(idx).SLM_name = 'BNS1920';
 SLM_params(idx).is_OD = 0;
-SLM_params(idx).SDK_ver = '4857'; % 4857, 4851
+SLM_params(idx).SDK_ver = '0000';%'4857'; % 4857, 4851
 SLM_params(idx).bit_depth = 12;
 SLM_params(idx).height = 1152;
 SLM_params(idx).width = 1920;
@@ -225,8 +225,8 @@ end
 ops.GUI_dir = GUI_dir;
  
 % where to save outputs
-ops.calibration_dir = [ops.GUI_dir '\..\SLM_calibration'];
-ops.save_dir = [ops.GUI_dir '\..\SLM_outputs'];
+ops.calibration_dir = [ops.GUI_dir '\SLM_calibration'];
+ops.save_dir = [ops.GUI_dir '\SLM_outputs'];
 
 % GUI subdirectories
 ops.lut_dir = [ops.calibration_dir '\lut_calibration'];

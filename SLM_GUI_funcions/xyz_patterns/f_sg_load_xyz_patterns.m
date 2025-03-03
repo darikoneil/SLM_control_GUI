@@ -1,5 +1,5 @@
 function f_sg_load_xyz_patterns(app)
-% Load comple xyz patterns save
+% Load xyz pattern
 
     [file, location, ~] = uigetfile();
     filepath = strcat([location, file]);

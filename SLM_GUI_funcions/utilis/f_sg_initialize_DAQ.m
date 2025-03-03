@@ -5,7 +5,6 @@ function f_sg_initialize_DAQ(app)
 try
     app.InitializeDAQLamp.Color = [0.8 0.8 0.8];
     app.DAQ_session = daq.createSession('ni');
-    %app.DAQ_session = daq('ni');
     
     chan_made = false(3,1);
 
