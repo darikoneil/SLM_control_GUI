@@ -1,4 +1,4 @@
-*.fig binary
+gi*.fig binary
 *.mat binary
 *.mdl binary
 *.mdlp binary

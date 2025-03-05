@@ -7,3 +7,7 @@
 *.png
 *.tif
 *.lnk
+SLM_GUI_local_ops.mat
+*/resources/*
+*/darik/*
+*/libraries/*
