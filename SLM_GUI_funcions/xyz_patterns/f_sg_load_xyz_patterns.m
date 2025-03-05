@@ -16,5 +16,7 @@ function f_sg_load_xyz_patterns(app)
     app.UIImagePhaseTable.Data = pattern.xyz_pts;
     app.PatternDropDownCtr.Items = [{'None'}, app.xyz_patterns.pat_name];
     app.PatternDropDownAI.Items = [{'None'}, app.xyz_patterns.pat_name];
+    app.PatternDropDownCtr.Value = pattern.pat_name;
+    app.PatternDropDownAI.Value = pattern.pat_name;
 
 end
