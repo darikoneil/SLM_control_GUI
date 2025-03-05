@@ -2,12 +2,14 @@ function f_sg_pp_initialize(app)
 
 tab_data = app.app_main.UIImagePhaseTable.Data;
 pattern_data = table2struct(tab_data);
-app.data.pattern_data = pattern_data;
+xapp.data.pattern_data = pattern_data;
 
 if isempty([tab_data.Pattern])
     app.PatternSpinner.Value = 1;
 else
-    app.PatternSpinner.Value = min([tab_data.Pattern]);
+    % FORCE TO DOUBLE BECAUSE MATLAB DOESN"T ALLOW INDEXING SPINNERS WITH
+    % INTEGERS!?!?!?!?!?
+    app.PatternSpinner.Value = double(min([tab_data.Pattern]));
 end
 
 app.imagedirEditField.Value = f_clean_path(app.app_main.SLM_ops.pattern_editor_dir);
@@ -40,6 +42,10 @@ for n_var = 1:size(var_list,1)
         app.(var_list{n_var,1}).Value = app.app_main.pp_ops.(var_list{n_var,2});
     end
 end
+
+%% Initialize zoom
+app.ZoomEditField.Value = app.app_main.SLM_ops.zoom;
+
 
 %% initialize plot
 
