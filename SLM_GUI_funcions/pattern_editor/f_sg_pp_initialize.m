@@ -44,7 +44,7 @@ for n_var = 1:size(var_list,1)
 end
 
 %% Initialize zoom
-app.ZoomEditField.Value = app.app_main.SLM_ops.zoom;
+app.ZoomEditField.Value = app.app_main.ZoomEditField.Value;
 
 
 %% initialize plot

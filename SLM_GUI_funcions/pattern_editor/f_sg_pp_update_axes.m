@@ -16,7 +16,7 @@ else
 end
 
 FOV_size = app.app_main.FOVsizeumEditField.Value;
-zoom = app.ZoomEditField.Value;
+zoom = app.app_main.ZoomEditField.Value;
 
 app.UIAxes.XLim = [-FOV_size/zoom/2 FOV_size/zoom/2] + xy_offset(1);
 app.UIAxes.YLim = [-FOV_size/zoom/2 FOV_size/zoom/2] + xy_offset(2);

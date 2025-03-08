@@ -7,7 +7,7 @@ name_tag = f_sg_get_timestamp();
 
 app.calibfilenameEditField.Value = ['xyz_calib_' name_tag '.mat'];
 
-app.FOVszieumEditField.Value = app.app_main.FOVsizeumEditField.Value;
+app.FOVsizeumEditField.Value = app.app_main.FOVsizeumEditField.Value;
 app.ZoomEditField.Value = app.app_main.ZoomEditField.Value;
 
 %% initialize 

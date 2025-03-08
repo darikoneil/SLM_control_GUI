@@ -3,7 +3,7 @@ function f_sg_lc_save_calib(app)
 
 [d1, ~] = size(app.data.lat_calib_all(1).image);
 
-pix_step_xy = app.FOVszieumEditField.Value/d1/app.ZoomEditField.Value;
+pix_step_xy = app.FOVsizeumEditField.Value/d1/app.ZoomEditField.Value;
 
 %%
 islateral = logical(app.UITable.Data(:,4).Variables);
@@ -43,7 +43,7 @@ else
 end
 
 calib_ops.invert_for_beads = app.InvertcoordsforbeadsCheckBox.Value;
-calib_ops.fov_size = app.FOVszieumEditField.Value;
+calib_ops.fov_size = app.FOVsizeumEditField.Value;
 calib_ops.zoom = app.ZoomEditField.Value;
 calib_ops.num_pix = d1;
 calib_ops.initial_correction = initial_tf_mat;
