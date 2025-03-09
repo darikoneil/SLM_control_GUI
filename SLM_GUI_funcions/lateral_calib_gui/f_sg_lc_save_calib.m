@@ -1,6 +1,10 @@
 function f_sg_lc_save_calib(app)
 %%
 
+%% BUG: Inconsistent indexing of coordinates. 
+%Errors include flipping the sign of transformation matrix when correcting
+% prior calibrations
+
 [d1, ~] = size(app.data.lat_calib_all(1).image);
 
 pix_step_xy = app.FOVsizeumEditField.Value/d1/app.ZoomEditField.Value;
@@ -87,7 +91,7 @@ xyz_affine_calib.xyz_affine_tf_mat = initial_tf_mat*xyz_affine_tf_mat;
 xyz_affine_calib.calib_ops = calib_ops;
 
 % check
-%input_coords*xyz_affine_tf_mat;
+input_coords*xyz_affine_tf_mat;
 %% plot 
 
 save_fname = app.calibfilenameEditField.Value;
