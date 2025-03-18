@@ -1,7 +1,21 @@
 function [SLM_phase, holo_phase, SLM_phase_corr, holo_phase_corr, AO_phase] = f_sg_xyz_gen_SLM_phase(app, coord, reg1, apply_AO, method, phase_synthesis_disk_method)
+% Generates phase pattern to upload to SLM that will target provided coordinates
+% The method can be 'Superposition', 'global_GS', 'global_GS_LW', 'NOVO_CGH_VarI_LW', 'NOVO_CGH_VarIEuclid_LW', 'NOVO_CGH_2PEuclid_LW'
+% The phase_synthesis_disk_method can be 'FFT', 'superposition_LW', 'global_GS_LW', 'NOVO_CGH_VarI_LW', 'NOVO_CGH_VarIEuclid_LW', 'NOVO_CGH_2PEuclid_LW'
+% Returns
+% SLM_phase, which may or may not be a an SLM phase with adaptive optics correction
+% holo_phase is an intermediate phase pattern that was generated for each set of coordinates
+% SLM_phase_corr is the SLM phase with adaptive optics correction
+% holo_phase_corr is the phase pattern that was generated for each set of coordinates with adaptive optics correction
+% AO_phase is the adaptive optics phase pattern
+
+
+%  The final phase pattenr is created by taking the corrected or not corrected holo
+%  phases, coverting them to complex exponentials, weighting them according to the target intensities,
+%  summing across all points, and taking the angle of the resulting complex field.
 
 coord_corr = f_sg_coord_correct(reg1, coord);
-
+ 
 if ~exist('phase_synthesis_disk_method', 'var')
     phase_synthesis_disk_method = 'global_GS_LW';%  FFT, superposition_LW, global_GS_LW, NOVO_CGH_VarI_LW, NOVO_CGH_VarIEuclid_LW, NOVO_CGH_2PEuclid_LW
 end
