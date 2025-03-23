@@ -17,7 +17,7 @@ if apply_AO
     end
 end
 
-defocus_phase = f_sg_DefocusPhase2(reg1);
+%defocus_phase = f_sg_DefocusPhase2(reg1);
 
 % Waller Lab params
 System.Nx = reg1.SLMm;
@@ -182,5 +182,9 @@ else
     end
     SLM_phase = SLM_phase_corr;
 end
+
+figure();
+imagesc(SLM_phase);
+
 
 end

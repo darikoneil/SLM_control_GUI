@@ -1,4 +1,4 @@
-function [ defocus ] = f_sg_DefocusPhase2(reg_params)
+function [phase, bias] = f_sg_DefocusPhase2(reg_params)
 
 SLMm = reg_params.SLMm;
 SLMn = reg_params.SLMn;
@@ -52,7 +52,7 @@ cos_alpha = cos(asin(sin_alpha));
 bias = (2*objectiveRI*k)/(3*sin_alpha^2)*(1 - cos_alpha^3);
 
 % defocus is phase with bias subtracted
-defocus = -(phase - bias);
+%defocus = -(phase - bias);
 
 % approximation
 %defocus = -objectiveRI * k * (1 - RHO.^2 * (objectiveNA/objectiveRI)^2 / 2 - RHO.^4 * (objectiveNA/objectiveRI)^4 / 8);

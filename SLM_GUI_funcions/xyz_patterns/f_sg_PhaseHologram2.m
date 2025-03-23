@@ -25,9 +25,15 @@ holo_phase = zeros(SLMm, SLMn, num_points);
 num_pts = size(xyzp,1);
 
 %defocus_phase = f_sg_DefocusPhase(reg_params);
-defocus_phase = f_sg_DefocusPhase2(reg_params);
-
+[phase, bias] = f_sg_DefocusPhase2(reg_params);
+  
+    
 for idx=1:num_pts
+    if xyzp(idx, 3) < 0
+        this_bias = -1 * bias;
+        this_phase = phase;
+        defocus_phase = - (this_phase - this_bias);
+    end
     holo_phase(:,:,idx)=2*pi.*xyzp(idx,1).*u ...
                       + 2*pi.*xyzp(idx,2).*v ...
                       + xyzp(idx,3)*1e-6.*defocus_phase;
